@@ -18,13 +18,13 @@ html
       section
         h1 Genetic Algorithms
         h3 By Roey Chasman
+        p <a href="http://www.github.com/rchasman/genetic-algorithm-presentation">Find me on Github</a>
 
       section
         h2 Examples:
         ol
           li <a href="http://www.blprnt.com/smartrockets/">Smart Rockets</a>
           li <a href="http://boxcar2d.com/index.html">2D Cars</a>
-          li Smart Rockets: <a href="http://www.blprnt.com/smartrockets/">Smart Rockets</a>
           li
             pre
               code.language-javascript.
@@ -34,10 +34,10 @@ html
 
       section
         h2 Processing
+        canvas#alpha(data-processing-sources="scripts/walker.pde scripts/drawing.pde")
         span
-          button(onClick='start()') Start
-          button(onClick='stop()') Stop
-        canvas#sketch(data-processing-sources="scripts/drawing.pde" width='800' height='800')
+          button#pauser(onClick='pause()') Pause
+          button(onClick='reset()') Reset
 
       section
         h2 Responsive Slides
@@ -94,6 +94,5 @@ html
     script(src='bower_components/bespoke-forms/dist/bespoke-forms.min.js')
     script(src='bower_components/prism/prism.js')
     script(src='bower_components/processing/processing.js')
-    script(src='scripts/drawing.js')
     script(src='scripts/main.js')
     // endbuild

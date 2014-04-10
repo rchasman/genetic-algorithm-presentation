@@ -10,14 +10,29 @@ bespoke.from('article', {
 
 var canvas = document.getElementById("sketch");
 // attaching the sketchProc function to the canvas
-var p = Processing.getInstanceById('alpha')
+var p;
+var pauser = true;
+
+function switcher(on) {
+  if (!p) {
+    p = Processing.getInstanceById('alpha');
+  }
+  if (on) {
+    p.loop();
+  } else {
+    p.noLoop();
+  }
+}
 // p.exit(); to detach it
-function start() {
-  console.log("start");
-  //p.loop()
+function pause() {
+  pauser = pauser ? false : true;
+  document.getElementById("pauser").firstChild.data = pauser ? "pause" : "resume";
+  switcher(pauser);
 }
 
-function stop() {
-  console.log("stop");
-  //p.noLoop()
+function reset() {
+  if (!p) {
+    p = Processing.getInstanceById('alpha');
+  }
+  p.setup();
 }
