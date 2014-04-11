@@ -16,24 +16,37 @@ html
     article
 
       section
-        h1 Genetic Algorithms
+        h2 The Wow of Genetic Algorithms
+        br
         h3 By Roey Chasman
-        p <a href="http://www.github.com/rchasman/genetic-algorithm-presentation">Find me on Github</a>
 
       section
-        h2 Examples:
+        h2 What Are Genetic Algorithms?
+        br
+        p Genetic Algorithms use evolutionary principles to 'evolve' and 'adapt' based on environments to some truth, prediction, or optimization.
+
+      section
+        h2 DNA and Genes
+        br
+        p Genetic Algorithms (GA) are modeled after biological reproduction. There are metaphors seen in nature.
+        ul
+          li 'Genes' are a metaphor for features or traits in a problem space.
+          li Collectively Genes are referred to as 'DNA'
+          li GA's recombinate Genes in DNA to hopefully evolve better and better solutions.
+          li Applying GA means carefully selecting the problem features to use in your DNA.
+
+      section
+        h2 Implementation
+        br
+        p While not necesarily 'easy', they follow a simple series of steps to implement.
         ol
-          li <a href="http://www.blprnt.com/smartrockets/">Smart Rockets</a>
-          li <a href="http://boxcar2d.com/index.html">2D Cars</a>
-          li
-            pre
-              code.language-javascript.
-                var nice = 5 + 5;
-                var nice = 5 + 5;
-                nice();
+          li I. Genesis
+          li II. Fitness
+          li III. Reproduction
+          li IV. Death
 
       section
-        h2 Processing
+        h2 Initial Seed
         canvas#alpha(data-processing-sources="scripts/walker.pde scripts/drawing.pde")
         span
           button#pauser(onClick='pause()') Pause
@@ -82,6 +95,21 @@ html
           li
             strong Enjoy! :)
             a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+
+      section
+        h2 Resources:
+        ol
+          li <a href="http://www.blprnt.com/smartrockets/">Example: Smart Rockets</a>
+          li <a href="http://boxcar2d.com/index.html">Example: 2D Cars</a>
+          li <a href="http://natureofcode.com/book/chapter-9-the-evolution-of-code/">Book: Nature of Code</a>
+          li
+            pre
+              code.language-javascript.
+                var nice = 5 + 5;
+                var nice = 5 + 5;
+                nice();
+        p Inspired by <a href="https://twitter.com/allingeek">Jeff Nickoloff's</a> Desert Code Camp talk.
+        p This repo on <a href="http://www.github.com/rchasman/genetic-algorithm-presentation">Github</a>
 
     // build:js scripts/scripts.js
     script(src='bower_components/bespoke.js/dist/bespoke.min.js')

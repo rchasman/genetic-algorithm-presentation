@@ -26,7 +26,7 @@ function switcher(on) {
 // p.exit(); to detach it
 function pause() {
   pauser = pauser ? false : true;
-  document.getElementById("pauser").firstChild.data = pauser ? "pause" : "resume";
+  document.getElementById("pauser").firstChild.data = pauser ? "Pause" : "Resume";
   switcher(pauser);
 }
 
