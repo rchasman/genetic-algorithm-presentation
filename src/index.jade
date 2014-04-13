@@ -28,17 +28,38 @@ html
       section
         h2 DNA and Genes
         br
-        p Genetic Algorithms (GA) are modeled after biological reproduction. There are metaphors seen in nature.
+        p Genetic Algorithms (GA) are modeled after biological reproduction.
+        p They are easy to think about when we use metaphors from occurences in nature.
         ul
+          li
           li 'Genes' are a metaphor for features or traits in a problem space.
           li Collectively Genes are referred to as 'DNA'
           li GA's recombinate Genes in DNA to hopefully evolve better and better solutions.
           li Applying GA means carefully selecting the problem features to use in your DNA.
 
       section
+        h2 What's in a GA? Actors
+        br
+        p Actors what we call individuals within a population.
+        ul
+          li
+          li Actors have their own DNA contributed by their parents or random chance.
+          li Actors are evaluated for fitness.
+          li Actors breed, some more than others.
+          li Actors die..
+
+      section
+        h2 What's in a GA? Populations
+        br
+        ul
+          li A Population is a discrete generation of actors.
+          li Populations have sizes. Some GA's might use fixed or variable population sizes.
+          li The Population or generation size is a critical input to any GA.
+
+      section
         h2 Implementation
         br
-        p While not necesarily 'easy', they follow a simple series of steps to implement.
+        p While not necesarily 'easy' to implement, GA's actually follow a simple series of steps.
         ol
           li I. Genesis
           li II. Fitness
@@ -46,55 +67,29 @@ html
           li IV. Death
 
       section
-        h2 Initial Seed
+        h2 I. Genesis - First Generation
+        br
+        p
+        ol
+          li
+          li I. Genesis
+          li II. Fitness
+          li III. Reproduction
+          li IV. Death
+
+      section
+        h2 Genesis - Initial Seed
         canvas#alpha(data-processing-sources="scripts/walker.pde scripts/drawing.pde")
         span
           button#pauser(onClick='pause()') Pause
           button(onClick='reset()') Reset
 
       section
-        h2 Responsive Slides
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
-        ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-
-      section
-        h2 Syntax Highlighting
-        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
-        hr
-        pre
-          code.language-javascript.
-            bespoke.from('article', {
-              keys: true,
-              touch: true,
-              hash: true,
-              state: true,
-              bullets: 'li, .bullet'
-            });
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
-
-      section
-        h2.bullet Just the beginning...
-        hr
-        ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
-        hr
-        ul
-          li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+        h2 Genesis - Initial Seed
+        canvas#bravo(data-processing-sources="scripts/walker.pde scripts/drawing.pde")
+        span
+          button#pauser(onClick='pause()') Pause
+          button(onClick='reset()') Reset
 
       section
         h2 Resources:
