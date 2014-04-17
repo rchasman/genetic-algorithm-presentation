@@ -3,45 +3,60 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    title Genetic Algorithms and You
 
-    // build:css styles/styles.css
-    //- Check out 'src/bower_components/prism/themes/' for available themes
+    title Genetic Algorithms and You
     link(rel='stylesheet', type='text/css', href='bower_components/reveal.js/css/reveal.min.css')
     link(rel='stylesheet', type='text/css', href='bower_components/reveal.js/css/theme/default.css')
-    // endbuild
 
   body
     div.reveal
       div.slides
+
         section
           h2 The Wow of Genetic Algorithms
-          br
           h3 By Roey Chasman
+          img(class='fragment zoom-in' src='styles/doge1.jpg')
 
         section
-          h2 What Are Genetic Algorithms?
-          br
-          p.bullet Genetic Algorithms use evolutionary principles to 'evolve' and 'adapt' based on environments to some truth, prediction, or optimization.
+          h2 What are they?
+          ul
+            li.fragment Genetic Algorithms (GAs) are algorithms that use Darwinian principles to reactively converge upon optimal solutions in their environment.
+            br
+            li.fragment Technical Definition: "A machine learning technique used to optimize a population of computer programs according to a fitness landscape determined by a program's ability to perform a given computational task."
+            br
+            li.fragment Sound complicated? GAs are easy to think about when we use metaphors from occurences in nature.
 
         section
-          h2 DNA and Genes
+          h2 Darwinian Theory
+          p.fragment "All species of organisms arise and develop through the natural selection of small, inherited variations that increase the individual's ability to compete, survive, and reproduce." - Wikipedia
+          p.fragment If we want to abstract this theory into code let's first drill down the concept.
           br
           ul
-            li
-            li.bullet Genetic Algorithms (GAs) are programs that are modeled after biological reproduction.
-            li They are easy to think about when we use metaphors from occurences in nature.
-            li 'Genes' are a metaphor for features or traits in a problem space.
+            li.fragment In nature, the process of evolution has no contextual knowledge. It's 'dumb'.
+            br
+            li.fragment Various expressions of traits are selected to be passed on based on their results of a fitness ranking among the survivors.
+
+        section
+          h2 Abstractions in a GA
+          ul
+            li DNA and Genes
+            li Actors
+            li Populations
+
+        section
+          p DNA and Genes
+          ul
+            li 'Genes' are the metaphor for features or traits in a problem space.
             li Collectively Genes are referred to as 'DNA'
-            li GA's recombinate Genes in DNA to hopefully evolve better and better solutions.
+            li GAs recombinate Genes in DNA to hopefully evolve better and better solutions.
             li Applying GA means carefully selecting the problem features to use in your DNA.
+
+
 
         section
           h2 What's in a GA? Actors
-          br
           p Actors what we call individuals within a population.
           ul
-            li
             li Actors have their own DNA contributed by their parents or random chance.
             li Actors are evaluated for fitness.
             li Actors breed, some more than others.
@@ -49,28 +64,28 @@ html
 
         section
           h2 What's in a GA? Populations
-          br
           ul
             li A Population is a discrete generation of actors.
             li Populations have sizes. Some GA's might use fixed or variable population sizes.
             li The Population or generation size is a critical input to any GA.
 
         section
-          h2 Implementation
-          br
-          p While not necesarily 'easy' to implement, GA's actually follow a simple series of steps.
-          ol
-            li I. Genesis
-            li II. Fitness
-            li III. Reproduction
-            li IV. Death
+          h2 Caveats
+            br
+            li.fragment Diversity is key! If there isn't enough variance among the initial population the population will have a hard time improving upon their previous generation.
+            br
+            li.fragment Random mutations are introduced during reproduction.
+            br
+            li.fragment GAs optimize for 'fitness'.
+            ul
+              li.fragment The better specimens have an easier time to pass on their genes and so the better actors will propagate.
+            br
+            li.fragment without actual analysis of the rules of the problem given enough variance GAs will converge upon an approximate solution.
+          img(class='fragment zoom-in' src='styles/yeahscience.gif')
 
         section
-          h2 I. Genesis - First Generation
-          br
-          p
+          h2 Implementation
           ol
-            li
             li I. Genesis
             li II. Fitness
             li III. Reproduction
@@ -79,6 +94,7 @@ html
         section
           h2 Genesis - Initial Seed
           canvas#alpha(data-processing-sources="scripts/actor.pde scripts/drawing.pde")
+          br
           span
             button#pauser(onClick='pause()') Pause
             button(onClick='reset()') Reset
@@ -91,19 +107,15 @@ html
             li <a href="http://multigrad.blogspot.com/2014/04/math-evolution-and-dirty-tricks.html">Fun: Genetic Programming to find Quake III's fast inverse square hack</a>
             li <a href="http://natureofcode.com/book/chapter-9-the-evolution-of-code/">Book: Nature of Code</a>
             li <a href="https://code.google.com/p/deap/">Library: DEAP</a>
-            li
-              pre
-                code.language-javascript.
-                  var nice = 5 + 5;
-                  var nice = 5 + 5;
-                  nice();
+
+        section
+          h1 Thank You
           p Inspired by <a href="https://twitter.com/allingeek">Jeff Nickoloff's</a> Desert Code Camp talk.
           p This repo on <a href="http://www.github.com/rchasman/genetic-algorithm-presentation">Github</a>
 
     // build:js scripts/scripts.js
 
-    script(src='bower_components/reveal.js/js/reveal.min.js')
-    script(src='bower_components/prism/prism.js')
+    script(src='bower_components/reveal.js/js/reveal.js')
     script(src='bower_components/Processing.js/Processing.min.js')
     script(src='scripts/main.js')
     // endbuild

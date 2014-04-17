@@ -1,34 +1,25 @@
 Reveal.initialize({
-    controls: false,
-    progress: true,
-    slideNumber: false,
-    history: false,
-    keyboard: true,
-    overview: true,
-    center: true,
-    touch: true,
-    loop: false,
-    rtl: false,
-    fragments: true,
-    embedded: false,
-    autoSlide: 0,
-    autoSlideStoppable: true,
-    mouseWheel: false,
-    hideAddressBar: true,
-    previewLinks: false,
-    transition: 'linear',
-    transitionSpeed: 'fast',
-    backgroundTransition: 'default',
-    viewDistance: 3,
-    parallaxBackgroundImage: '/styles/bg.jpg'
+  controls: false,
+  slideNumber: true,
+  history: true,
+  overview: true,
+  center: true,
+  touch: false,
+  fragments: true,
+  transition: 'page',
+  parallaxBackgroundImage: '/styles/bg.jpg',
+  parallaxBackgroundSize: '2100px',
+  dependencies:
+    { src: 'bower_component/reveal.js/plugin/highlight/highlight.js',
+      async: true,
+      callback: function() { hljs.initHighlightingOnLoad(); }
+    }
 });
 
 var canvas = document.getElementById("sketch");
 // attaching the sketchProc function to the canvas
 var p;
 var pauser = true;
-
-Processing.logger = console;
 
 function switcher(on) {
   if (!p) {
@@ -40,6 +31,7 @@ function switcher(on) {
     p.noLoop();
   }
 }
+
 // p.exit(); to detach it
 function pause() {
   pauser = pauser ? false : true;
