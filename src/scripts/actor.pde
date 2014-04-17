@@ -16,7 +16,7 @@ class Actor {
       int rand = int(random(3));
       dna[i] = toChromosome(rand);
     }
-    println(dna);
+    console.log(dna.toString());
   }
 
   char toChromosome(int rps) {
@@ -46,7 +46,9 @@ class Actor {
   }
 
   void display() {
-    setup();
+
+    setup(); //reset
+
     int offsetX = 15 + (100 * currentGeneration);
     int offsetY = 25;
     textSize(16);
