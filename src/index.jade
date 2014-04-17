@@ -28,68 +28,109 @@ html
 
         section
           h2 Darwinian Theory
+          br
           p.fragment "All species of organisms arise and develop through the natural selection of small, inherited variations that increase the individual's ability to compete, survive, and reproduce." - Wikipedia
+          br
           p.fragment If we want to abstract this theory into code let's first drill down the concept.
           br
           ul
             li.fragment In nature, the process of evolution has no contextual knowledge. It's 'dumb'.
-            br
             li.fragment Various expressions of traits are selected to be passed on based on their results of a fitness ranking among the survivors.
 
         section
-          h2 Abstractions in a GA
-          ul
-            li DNA and Genes
-            li Actors
-            li Populations
+          h2 This is Life
+          br
+          ol.fragment
+            li.fragment.grow We are born.
+            li.fragment.grow We do stuff.
+            li.fragment.grow We make babies.
+            li.fragment.grow We die.
+          div.fragment
+            img(src='styles/what.gif')
+            p.fragment GAs are implementions of life.
 
         section
-          p DNA and Genes
-          ul
-            li 'Genes' are the metaphor for features or traits in a problem space.
-            li Collectively Genes are referred to as 'DNA'
-            li GAs recombinate Genes in DNA to hopefully evolve better and better solutions.
-            li Applying GA means carefully selecting the problem features to use in your DNA.
-
-
+          h2 Abstractions of Genetic Algorithms
+          br
+          p.fragment.grow.highlight-blue DNA and Genes
+          br
+          p.fragment.grow.highlight-red Actors
+          br
+          p.fragment.grow.highlight-green Populations
 
         section
-          h2 What's in a GA? Actors
-          p Actors what we call individuals within a population.
-          ul
-            li Actors have their own DNA contributed by their parents or random chance.
+          h2 Abstraction: DNA and Genes
+          p.fragment 'Genes' are the metaphor for expressed traits in a problem space.
+          p.fragment Collectively Genes are referred to as 'DNA'
+          br
+          ul.fragment
+            li GAs recombinate their Genes inside of DNA to evolve.
+            li DNA set's must be populated by thoughtful selections of traits.
+
+        section
+          h2 Abstraction: Actors
+          p.fragment Actors what we call individuals within a population.
+          br
+          ul.fragment
+            li An Actor's DNA is either inherited from their parents or random chance.
             li Actors are evaluated for fitness.
-            li Actors breed, some more than others.
+            li Actors breed. Some more than others.
             li Actors die..
 
         section
-          h2 What's in a GA? Populations
-          ul
-            li A Population is a discrete generation of actors.
-            li Populations have sizes. Some GA's might use fixed or variable population sizes.
-            li The Population or generation size is a critical input to any GA.
+          h2 Abstraction: Populations
+          p.fragment A Population is a discrete generation of actors.
+          br
+          ul.fragment
+            li Populations have sizes.
+            li Fixed or variable population sizes is an implementation choice.
+            li A Population's generation size is a critical input to any GA.
 
         section
-          h2 Caveats
-            br
-            li.fragment Diversity is key! If there isn't enough variance among the initial population the population will have a hard time improving upon their previous generation.
-            br
-            li.fragment Random mutations are introduced during reproduction.
-            br
-            li.fragment GAs optimize for 'fitness'.
-            ul
-              li.fragment The better specimens have an easier time to pass on their genes and so the better actors will propagate.
-            br
-            li.fragment without actual analysis of the rules of the problem given enough variance GAs will converge upon an approximate solution.
-          img(class='fragment zoom-in' src='styles/yeahscience.gif')
+          h2 Specifics
+          br
+          p Remember how life works?
+          br
+          table(style='border-spacing: 60px 0px; margin: 0px auto;')
+            tr
+              td.fragment(data-fragment-index="1")
+                li We are born.
+              td.fragment.zoom-in(data-fragment-index="5")
+                p I. Genesis
+            tr
+              td.fragment(data-fragment-index="2")
+                li We do stuff.
+              td.fragment.zoom-in(data-fragment-index="5")
+                p II. Fitness
+            tr
+              td.fragment(data-fragment-index="3")
+                li We make babies.
+              td.fragment.zoom-in(data-fragment-index="5")
+                p III. Reproduction
+            tr
+              td.fragment(data-fragment-index="4")
+                li We die.
+              td.fragment.zoom-in(data-fragment-index="5")
+                p IV. Death
+          br
+          p.fragment Now lets implement it!
 
         section
           h2 Implementation
-          ol
-            li I. Genesis
-            li II. Fitness
-            li III. Reproduction
-            li IV. Death
+
+        section
+          h2 Caveats
+          br
+          li.fragment Diversity is key! If there isn't enough variance among the initial population the population will have a hard time improving upon their previous generation.
+          br
+          li.fragment Random mutations are introduced during reproduction.
+          br
+          li.fragment GAs naturally optimize by favoring Actors that have high fitness rankings for reproduction.
+          br
+          li.fragment Even without actual analysis of the rules of the problem given enough variance GAs will converge upon an approximate solution.
+          br
+          img(class='fragment zoom-in' src='styles/yeahscience.gif')
+
 
         section
           h2 Genesis - Initial Seed
