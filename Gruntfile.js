@@ -1,5 +1,3 @@
-// Generated on 2014-04-09 using generator-bespoke v0.8.0
-
 module.exports = function(grunt) {
 
   var config = {
@@ -27,22 +25,8 @@ module.exports = function(grunt) {
           cwd: 'src/scripts/',
           src: '**/*.pde',
           dest: 'public/scripts/',
-          ext: '.js'
+          ext: '.pde'
         }]
-      }
-    },
-    stylus: {
-      src: {
-        files: [{
-          expand: true,
-          cwd: 'src/styles/',
-          src: '**/*.styl',
-          dest: 'public/styles/',
-          ext: '.css'
-        }],
-        options: {
-          compress: false
-        }
       }
     },
     image: {
@@ -50,20 +34,9 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'src/styles/',
-          src: '**/*.jpg',
+          src: ['**/*.jpg', '**/*.gif'],
           dest: 'public/styles/',
           ext: '.jpg'
-        }]
-      }
-    },
-    coffee: {
-      src: {
-        files: [{
-          expand: true,
-          cwd: 'src/scripts/',
-          src: '**/*.coffee',
-          dest: 'public/scripts/',
-          ext: '.js'
         }]
       }
     },
@@ -75,8 +48,6 @@ module.exports = function(grunt) {
           src: [
             '**/*',
             '!<%= jade.src.files[0].src %>',
-            '!<%= stylus.src.files[0].src %>',
-            '!<%= coffee.src.files[0].src %>'
           ],
           dest: 'public/'
         }]
@@ -87,30 +58,10 @@ module.exports = function(grunt) {
         files: '<%= jade.src.files[0].cwd + jade.src.files[0].src %>',
         tasks: 'jade'
       },
-      jade: {
-        files: '<%= image.src.files[0].cwd + image.src.files[0].src %>',
-        tasks: 'image'
-      },
-      processing: {
-        files: '<%= processing.src.files[0].cwd + processing.src.files[0].src %>',
-        tasks: 'processing'
-      },
-      stylus: {
-        files: '<%= stylus.src.files[0].cwd + stylus.src.files[0].src %>',
-        tasks: 'stylus'
-      },
-      coffee: {
-        files: '<%= coffee.src.files[0].cwd + coffee.src.files[0].src %>',
-        tasks: 'coffee'
-      },
       copy: {
         files: [
           '<%= copy.src.files[0].cwd + copy.src.files[0].src[0] %>',
-          '!<%= jade.src.files[0].cwd + jade.src.files[0].src %>',
-          '!<%= processing.src.files[0].cwd + processing.src.files[0].src %>',
-          '!<%= stylus.src.files[0].cwd + stylus.src.files[0].src %>',
-          '!<%= image.src.files[0].cwd + image.src.files[0].src %>',
-          '!<%= coffee.src.files[0].cwd + coffee.src.files[0].src %>'
+          '!<%= jade.src.files[0].cwd + jade.src.files[0].src %>'
         ],
         tasks: 'copy:src'
       },
@@ -150,10 +101,7 @@ module.exports = function(grunt) {
     concurrent: {
       compile: {
         tasks: [
-          'jade',
-          'stylus',
-          'coffee',
-          'copy'
+          'jade'
         ],
         options: {
           logConcurrentOutput: false
@@ -163,10 +111,8 @@ module.exports = function(grunt) {
         tasks: [
           'connect',
           'open',
+          'copy',
           'watch:jade',
-          'watch:processing',
-          'watch:stylus',
-          'watch:coffee',
           'watch:copy',
           'watch:public'
         ],

@@ -2,7 +2,6 @@
   "name": "genetic-algorithms-and-you-bespoke",
   "version": "0.0.0",
   "dependencies": {
-    "prism": "gh-pages",
     "Processing.js": "~1.4.7",
     "reveal.js": "~2.6.2"
   }
