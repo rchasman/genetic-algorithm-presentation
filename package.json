@@ -1,6 +1,6 @@
 {
-  "name": "genetic-algorithms-and-you-bespoke",
-  "version": "0.0.0",
+  "name": "Genetic Algorithms",
+  "version": "0.1.0",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
