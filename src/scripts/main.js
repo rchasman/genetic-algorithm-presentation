@@ -5,15 +5,11 @@ Reveal.initialize({
   overview: true,
   center: true,
   touch: false,
+  loop: true,
   fragments: true,
   transition: 'page',
   parallaxBackgroundImage: '/styles/bg.jpg',
-  parallaxBackgroundSize: '2100px',
-  dependencies:
-    { src: 'bower_component/reveal.js/plugin/highlight/highlight.js',
-      async: true,
-      callback: function() { hljs.initHighlightingOnLoad(); }
-    }
+  parallaxBackgroundSize: '2100px'
 });
 
 var canvas = document.getElementById("sketch");
