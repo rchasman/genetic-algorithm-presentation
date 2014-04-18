@@ -13,9 +13,11 @@ html
       div.slides
 
         section
-          h2 The Wow of Genetic Algorithms
+          h1 The Wow of Genetic Algorithms
+          br
           h3 By Roey Chasman
-          img(class='fragment zoom-in' src='styles/doge1.jpg')
+          br
+          img(src='styles/sciencedoge.jpg')
 
         section
           h2 What are they?
@@ -61,10 +63,10 @@ html
         section
           h2 Abstraction: DNA and Genes
           p.fragment 'Genes' are the metaphor for expressed traits in a problem space.
-          p.fragment Collectively Genes are referred to as 'DNA'
+          p.fragment Collectively genes are referred to as 'DNA'
           br
           ul.fragment
-            li GAs recombinate their Genes inside of DNA to evolve.
+            li GAs recombinate their genes inside of DNA to evolve.
             li DNA set's must be populated by thoughtful selections of traits.
 
         section
@@ -116,47 +118,113 @@ html
           p.fragment Now lets implement it!
 
         section
-          h2 Implementation
-
-        section
-          h2 Caveats
+          h2 Implementation - I. Genesis
           br
-          li.fragment Diversity is key! If there isn't enough variance among the initial population the population will have a hard time improving upon their previous generation.
+          p Seed your initial generation's DNA
+          ul.fragment
+            li Random?
+            li Careful selection?
+            li Smoothed Random?
           br
-          li.fragment Random mutations are introduced during reproduction.
           br
-          li.fragment GAs naturally optimize by favoring Actors that have high fitness rankings for reproduction.
-          br
-          li.fragment Even without actual analysis of the rules of the problem given enough variance GAs will converge upon an approximate solution.
-          br
-          img(class='fragment zoom-in' src='styles/yeahscience.gif')
-
+          p.fragment Diversity is key!
 
         section
           h2 Genesis - Initial Seed
           canvas#alpha(data-processing-sources="scripts/actor.pde scripts/drawing.pde")
           br
           span
-            button#pauser(onClick='pause()') Pause
+            button#pauser(onClick='pause()') Generate
             button(onClick='reset()') Reset
 
         section
+          h2 Discussion - I. Genesis
+          br
+          p GAs work better and faster if an initial generation has greater variance in actor fitness.
+          br
+          p.fragment Why do you think this is?
+          h4.fragment.roll-in Answer: The less varied the Genesis population is, the less options a population has to choose from. There are cases where the superior Gene can never be expressed because it has never existed in the population.
+          br
+          h4.fragment What is the consequence of this?
+          p.fragment.roll-in Answer: The population will have a hard, if not impossible, time improving upon it's previous generations.
+
+        section
+          h2 Implementation - II. Fitness
+          br
+          p To evaluate each actor's fitness, you need two things:
+          br
+          h4.fragment Evaluation Function
+          p.fragment The actor must be scored according to some external goal.
+          p.fragment Audience: What are some examples of a possible function?
+          br
+          h4.fragment Normalization Function
+          p.fragment The actor must be scored compared to his peers.
+          p.fragment Linearly? Exponential? Logorithmic?
+
+        section
+          h2 Implementation - III. Breeding
+          br
+          h4.fragment Pool of Eligible Actors
+          p.fragment Within the population determine some threshold for mating eligibility.
+          p.fragment Maybe they all mate higher ranking Actors mate more?
+          p.fragment Up to you!
+          br
+          h4.fragment Crossover
+          p.fragment This is basically Meiosis. Given your n # of parents..
+          p.fragment Determine a random cross over point in the list of expressed genes.
+          p.fragment Gene subsets are contributed by the parents at crossover points.
+          br
+          h4.fragment Mutation
+          p.fragment For each gene in the baby Actor randomly mutate the gene.
+          p.fragment Set some probability for mutation in a Mutation Rate somewhere.
+
+        section
+          h2 Discussion - III. Breeding
+          br
+          p GAs optimize by favoring reproduction between Actors that have high fitness rankings .
+          br
+          h4.fragment Why would we introduce a chance that mutation could make our baby derpy?
+          p.fragment.roll-in Answer: Remember how important variance is in a population. Based on environmental changes, in some cases that would be trash baby actually becomes the pick of the litter.
+          img.fragment.roll-in(style='position: absolute; top: 20px; left: -200px; width: 200px;', src='styles/potato.jpg')
+          br
+          h4.fragment What is the consequence on a Population that has no Mutations?
+          p.fragment.roll-in Answer: The population would have zero way to adapt to changes in the problem set after optimizing because genes for the correct solution are extinct.
+
+        section
+          h2 Implementation - IV. Death
+          br
+          h4 An end... And a new start.
+          br
+          p.fragment We've learned what we can from the now elderly population.
+          p.fragment Send them off to the 'old folks home' (Garbage Collection)
+          img(class='fragment zoom-in' src='styles/oldfolks.jpg')
+          p.fragment Repeat from step II. with the new population.
+
+        section
+          h2 Conclusion
+          br
+          p Even with no actual analysis of the rules of the problem set, given enough variance and time, the GAs will eventually converge upon an approximate solution.
+          br
+          img(class='fragment zoom-in' src='styles/yeahscience.gif')
+          p.fragment Discussion: Interesting modifications/use cases for Genetic Algorithms?
+
+        section
           h2 Resources:
+          br
           ol
+            li <a href="https://github.com/allingeek/genetic-demo/blob/master/JeffnRpsCandidate.py">Example: Rock Paper Scissors Implementation</a>
             li <a href="http://www.blprnt.com/smartrockets/">Example: Smart Rockets</a>
             li <a href="http://boxcar2d.com/index.html">Example: 2D Cars</a>
-            li <a href="http://multigrad.blogspot.com/2014/04/math-evolution-and-dirty-tricks.html">Fun: Genetic Programming to find Quake III's fast inverse square hack</a>
+            li <a href="http://multigrad.blogspot.com/2014/04/math-evolution-and-dirty-tricks.html">Fun: GA for finding Carmacks Quake III fast inverse square hack</a>
             li <a href="http://natureofcode.com/book/chapter-9-the-evolution-of-code/">Book: Nature of Code</a>
             li <a href="https://code.google.com/p/deap/">Library: DEAP</a>
 
         section
-          h1 Thank You
-          p Inspired by <a href="https://twitter.com/allingeek">Jeff Nickoloff's</a> Desert Code Camp talk.
-          p This repo on <a href="http://www.github.com/rchasman/genetic-algorithm-presentation">Github</a>
-
-    // build:js scripts/scripts.js
+          h2 Thank You
+          br
+          p This code on <a href="http://www.github.com/rchasman/genetic-algorithm-presentation">Github</a>. Inspired by <a href="https://twitter.com/allingeek">Jeff Nickoloff's</a> talk.
+          img(style='width: 500px;', src='styles/doge1.jpg')
 
     script(src='bower_components/reveal.js/js/reveal.js')
     script(src='bower_components/Processing.js/Processing.min.js')
     script(src='scripts/main.js')
-    // endbuild

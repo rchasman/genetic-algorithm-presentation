@@ -47,7 +47,6 @@ class Actor {
 
   void display() {
 
-    setup(); //reset
 
     int offsetX = 15 + (100 * currentGeneration);
     int offsetY = 25;
